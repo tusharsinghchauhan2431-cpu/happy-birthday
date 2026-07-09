@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Letter 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(-45deg,#6a11cb,#ff5fa2,#ff9ecb,#ffd6e8);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Floating Hearts */
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:25px;
+    opacity:.5;
+    animation:floatHeart linear infinite;
+}
+
+@keyframes floatHeart{
+    from{
+        transform:translateY(0);
+        opacity:.5;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+/* Envelope */
+
+.envelope{
+    position:relative;
+    width:360px;
+    height:260px;
+    cursor:pointer;
+    animation:float 3s ease-in-out infinite;
+    opacity:0.6;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* Back */
+
+.back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg,#ff6f91,#ff3d6e);
+    border-radius:0 0 12px 12px;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+/* Flap */
+
+.flap{
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+   border-left:180px solid transparent;
+    border-right:180px solid transparent;
+    border-top:130px solid #ff2f63;
+    transform-origin:top;
+    transition:1s;
+    z-index:5;
+}
+
+/* Front */
+
+.front{
+    position:absolute;
+    bottom:0;
+    width:0;
+    height:0;
+    border-left:180px solid #ff7da5;
+    border-right:180px solid #ff7da5;
+    border-top:130px solid transparent;
+    z-index:4;
+}
+
+/* Letter */
+
+.letter{
+    position:absolute;
+    left:40px;
+    top:15px;
+    width:280px;
+    min-height:260px;   /* Increased */
+    background:#fffdf9;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    transition:1s;
+    z-index:2;
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+    overflow-y:auto;    /* Prevent overflow */
+}
+
+.letter h2{
+    color:#ff4d88;
+    margin-bottom:10px;
+       font-size:24px;
+}
+
+.letter p{
+    color:#555;
+    line-height:1.5;
+    font-size:14px;
+}
+
+/* Open Animation */
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+    z-index:1;
+}
+
+.envelope.open .letter{
+  transform:translateY(-170px);
+  
+}
+
+/* Hint */
+
+.hint{
+    position:absolute;
+    bottom:40px;
+    color:white;
+    font-size:18px;
+    animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.3;
+    }
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="envelope" onclick="openLetter()">
+
+    <div class="back"></div>
+
+    <div class="letter">
+
+        <h2>💖 Happy Birthday </h2>
+
+        <p>
+
+            Dear <b>Rishuuuu</b>,
+            <br>
+Tu Naye naye bhane dhunde <br>
+mujse dhur rhee n paye <br>
+Tu ayee  or iskadar ayee  <br>
+Fir dubaraa kbhi dhur ho n payee  <br>
+Bass yhi chahat h mujee <br>
+Tu ayee or iskadar chum le muje  <br>
+Jese kbhi bichde hi n ho <br>
+Uff birthday tumhara chahatt meri🤧❤️
+
+
+        </p>
+
+    </div>
+
+    <div class="flap"></div>
+
+    <div class="front"></div>
+
+</div>
+
+<p class="hint">💌 Click the envelope</p>
+
+
+
+<script>
+
+function openLetter(){
+
+    document.querySelector(".envelope").classList.toggle("open");
+
+    document.getElementById("nextBtn").style.display="block";
+
+}
+
+/* Floating Hearts */
+
+const emojis=["💖","💕","💗","💘","❤️"];
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=(20+Math.random()*20)+"px";
+
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>

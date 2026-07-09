@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9ad5,#c770bc);
+    font-family:Arial, sans-serif;
+}
+
+#msg{
+    max-width:700px;
+    padding:30px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+#msg p{
+    background:transparent;
+    color:#5a2954;
+    line-height:1.8;
+    text-align:center;
+    font-size:18px;
+}
+#scene button {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+
+  background: linear-gradient(135deg, #ff4d6d, #ff1744);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(255, 23, 68, 0.4);
+  transition: all 0.3s ease;
+}
+
+#scene button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(255, 23, 68, 0.6);
+  background: linear-gradient(135deg, #ff5f7e, #ff2d55);
+}
+
+#scene button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+#scene button:focus {
+  outline: none;
+}
+</style>
+<body>
+    <div id="msg">
+        <p>
+           <h2>💖 Happy Rishuuuu 💖</h2>
+
+            Happy Birthdayy Bby , and always be happy <BR>
+            
+            I wish this birthday will be great 
+            this time I can't give u anything so I made this for you 
+            and this is ur birthday gift from my side and you know i want to make this day special for you so i hope 
+            you feel happy after seeing your gift and my efforts and this was not editing i make this by using coding so it take me time to make it 
+            so I wish u read all the words I have written of you..
+            <br> click all the buttons all are working
+        </p> 
+        <div id="scene">
+  <button type="button" id="btn" onclick="window.location.href='index.html'" >Next</button>
+</div>
+    </div>
+</body>
+</html>
